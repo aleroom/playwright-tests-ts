@@ -24,6 +24,7 @@ test('Complete product purchase cycle on SauceDemo', async ({ page }) => {
   await page.locator('[data-test="lastName"]').fill('Ivanov');
   await page.locator('[data-test="postalCode"]').fill('220000');
   await page.locator('[data-test="continue"]').click();
+  await expect(page).toHaveURL(/checkout-step-two\.html/);
 
  
   await expect(page.locator('[data-test="payment-info-value"]')).toHaveText('SauceCard #31337');
